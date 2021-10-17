@@ -14,7 +14,7 @@ class SurveyResponseController extends Controller
 
     public function store(Request $request)
     {
-        $validResponses = ['blue' ,'black'];
+        $validResponses = ['blue-black' ,'white-gold', 'blue-brown', 'other'];
 
         $request->validate(['response' => [Rule::in($validResponses), 'required']]);
 

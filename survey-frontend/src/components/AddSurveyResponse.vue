@@ -2,34 +2,27 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          required
-          v-model="tutorial.title"
-          name="title"
-        />
+        
+        <input type="radio" id="white-gold" value="white-gold" v-model="surveyResponse.response">
+        <label for="one">White and Gold</label>
+        <br>
+        <input type="radio" id="blue-black" value="blue-black" v-model="surveyResponse.response">
+        <label for="one">Blue and Black</label>
+        <br>
+        <input type="radio" id="blue-brown" value="blue-brown" v-model="surveyResponse.response">
+        <label for="one">Blue and Brown</label>
+        <br>
+        <input type="radio" id="other" value="other" v-model="surveyResponse.response">
+        <label for="one">Something Else</label>
+        <br>
       </div>
 
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          class="form-control"
-          id="description"
-          required
-          v-model="tutorial.description"
-          name="description"
-        />
-      </div>
-
-      <button @click="saveTutorial" class="btn btn-success">Submit</button>
+      <button @click="saveSurveyResponse" class="btn btn-success">Submit</button>
     </div>
 
     <div v-else>
       <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newTutorial">Add</button>
+      <button class="btn btn-success" @click="newSurveyResponse">Add</button>
     </div>
   </div>
 </template>
@@ -38,28 +31,25 @@
 import SurveyResponseDataService from "../services/SurveyResponseDataService";
 
 export default {
-  name: "add-tutorial",
+  name: "add-survey-response",
   data() {
     return {
-      tutorial: {
+      surveyResponse: {
         id: null,
-        title: "",
-        description: "",
-        published: false
+        response:''
       },
       submitted: false
     };
   },
   methods: {
-    saveTutorial() {
+    saveSurveyResponse() {
       var data = {
-        title: this.tutorial.title,
-        description: this.tutorial.description
+        response: this.surveyResponse.response
       };
 
       SurveyResponseDataService.create(data)
         .then(response => {
-          this.tutorial.id = response.data.id;
+          this.surveyResponse.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })
@@ -68,9 +58,9 @@ export default {
         });
     },
     
-    newTutorial() {
+    newSurveyResponse() {
       this.submitted = false;
-      this.tutorial = {};
+      this.surveyResponse = {};
     }
   }
 };

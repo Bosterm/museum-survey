@@ -5,33 +5,30 @@
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
-          v-for="(tutorial, index) in tutorials"
+          v-for="(surveyResponse, index) in surveyResponses"
           :key="index"
-          @click="setActiveTutorial(tutorial, index)"
+          @click="setActiveSurveyResponse(surveyResponse, index)"
         >
-          {{ tutorial.title }}
+          {{ surveyResponse.response }}
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllTutorials">
+      <button class="m-3 btn btn-sm btn-danger" @click="removeAllSurveyResponses">
         Remove All
       </button>
     </div>
     <div class="col-md-6">
-      <div v-if="currentTutorial">
-        <h4>Tutorial</h4>
+      <div v-if="currentSurveyResponse">
+        <h4>Response</h4>
         <div>
-          <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+         {{ currentSurveyResponse.response }}
         </div>
         <div>
-          <label><strong>Description:</strong></label> {{ currentTutorial.description }}
-        </div>
-        <div>
-          <label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
+            {{ currentSurveyResponse.created_at }}
         </div>
 
         <a class="badge badge-warning"
-          :href="'/#/tutorials/' + currentTutorial.id"
+          :href="'/#/tutorials/' + currentSurveyResponse.id"
         >
           Edit
         </a>
@@ -48,20 +45,20 @@
 import SurveyResponseDataService from "../services/SurveyResponseDataService";
 
 export default {
-  name: "tutorials-list",
+  name: "survey-responses-list",
   data() {
     return {
-      tutorials: [],
-      currentTutorial: null,
+      surveyResponses: [],
+      currentSurveyResponse: null,
       currentIndex: -1,
       title: ""
     };
   },
   methods: {
-    retrieveTutorials() {
+    retrieveSurveyResponses() {
       SurveyResponseDataService.getAll()
         .then(response => {
-          this.tutorials = response.data;
+          this.surveyResponses = response.data;
           console.log(response.data);
         })
         .catch(e => {
@@ -70,17 +67,17 @@ export default {
     },
 
     refreshList() {
-      this.retrieveTutorials();
-      this.currentTutorial = null;
+      this.retrieveSurveyResponses();
+      this.currentSurveyResponse = null;
       this.currentIndex = -1;
     },
 
-    setActiveTutorial(tutorial, index) {
-      this.currentTutorial = tutorial;
+    setActiveSurveyResponse(tutorial, index) {
+      this.currentSurveyResponse = tutorial;
       this.currentIndex = index;
     },
 
-    removeAllTutorials() {
+    removeAllSurveyResponses() {
       SurveyResponseDataService.deleteAll()
         .then(response => {
           console.log(response.data);
@@ -93,7 +90,7 @@ export default {
     
   },
   mounted() {
-    this.retrieveTutorials();
+    this.retrieveSurveyResponses();
   }
 };
 </script>

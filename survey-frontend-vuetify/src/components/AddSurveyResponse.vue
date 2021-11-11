@@ -35,13 +35,14 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="reserve"
-      >
-        Submit
-      </v-btn>
+        <v-btn
+            block
+            color="primary"
+            elevation="2"
+            outlined
+            @click="reserve"
+        >
+        Submit</v-btn>
     </v-card-actions>
   </v-card>
 </template>

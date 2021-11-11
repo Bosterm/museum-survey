@@ -21,7 +21,7 @@
     <v-card-text>
       <v-chip-group
         v-model="selection"
-        active-class="deep-purple accent-4 white--text"
+        active-class="green accent-4 white--text"
         column
       >
         <v-chip>White and Gold</v-chip>
@@ -37,7 +37,7 @@
     <v-card-actions>
         <v-btn
             block
-            color="primary"
+            color="green"
             elevation="2"
             outlined
             @click="reserve"

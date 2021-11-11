@@ -13,8 +13,7 @@
     </template>
 
     <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      :src="require('../assets/Dress.png')"
     ></v-img>
 
     <v-card-title>Cafe Badilico</v-card-title>

@@ -1,5 +1,5 @@
 <template>
-    
+    <p>Add a response!</p>
 </template>
 <script>
   export default {

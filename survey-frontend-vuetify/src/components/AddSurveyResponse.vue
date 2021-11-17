@@ -53,19 +53,19 @@ export default {
   methods: {
     whiteGoldChip () {
       this.isChipSelected = true;
-      this.selectedChip = 'white-gold'
+      this.selectedChip = 0
     },
     blueBlackChip () {
       this.isChipSelected = true;
-      this.selectedChip = 'blue-black'
+      this.selectedChip =   1
     },
     blueBrownChip () {
       this.isChipSelected = true;
-      this.selectedChip = 'blue-brown'
+      this.selectedChip = 2
     },
     otherChip () {
       this.isChipSelected = true;
-      this.selectedChip = 'other'
+      this.selectedChip = 3
     }
   }
 };

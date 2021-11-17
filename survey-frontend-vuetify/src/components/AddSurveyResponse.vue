@@ -28,6 +28,7 @@
           elevation="2"
           outlined
           :disabled="!isChipSelected"
+          @click="saveSurveyResponse"
         >
           Submit</v-btn
         >
@@ -66,7 +67,33 @@ export default {
     otherChip () {
       this.isChipSelected = true;
       this.selectedChip = 3
-    }
+    },
+    saveSurveyResponse() {
+      var choice = ""
+      if (this.selectedChip == 0) {
+        choice = "white-gold"
+      } else if (this.selectedChip == 1) {
+        choice = 'blue-black'
+      } else if (this.selectedChip == 2) {
+        choice = 'blue-brown'
+      } else {
+        choice = 'other'
+      }
+      var data = {
+        response: choice
+      };
+      console.log(data.response)
+ /*
+      SurveyResponseDataService.create(data)
+        .then(response => {
+          this.surveyResponse.id = response.data.id;
+          console.log(response.data);
+          this.submitted = true;
+        })
+        .catch(e => {
+          console.log(e);
+        }); */
+    },
   }
 };
 </script>

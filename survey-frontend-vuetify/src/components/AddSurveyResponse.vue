@@ -37,7 +37,10 @@
   </v-card>
 </template>
 <script>
+import SurveyResponseDataService from "../services/SurveyResponseDataService";
+
 export default {
+  
   name: "add-survey-response",
   
   data() {
@@ -82,8 +85,7 @@ export default {
       var data = {
         response: choice
       };
-      console.log(data.response)
- /*
+
       SurveyResponseDataService.create(data)
         .then(response => {
           this.surveyResponse.id = response.data.id;
@@ -92,7 +94,7 @@ export default {
         })
         .catch(e => {
           console.log(e);
-        }); */
+        });
     },
   }
 };

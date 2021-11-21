@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto my-12" max-width="374">
-
+    <div v-if="!submitted">
     <v-img :src="require('../assets/Dress.png')"></v-img>
 
     <v-card-title>What two colors are this dress?</v-card-title>
@@ -34,6 +34,13 @@
         >
       </v-card-actions>
     </v-form>
+    </div>
+    <div v-else>
+      <v-card-text>
+        <h3>You see the same colors as 45% of today's visitors.</h3>
+
+        </v-card-text>
+    </div>
   </v-card>
 </template>
 <script>

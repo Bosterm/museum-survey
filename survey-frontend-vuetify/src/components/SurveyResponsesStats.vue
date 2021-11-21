@@ -83,28 +83,6 @@ export default {
       this.blue_brown = blue_brown_count;
       this.other = other_count;
     },
-    refreshList() {
-      this.retrieveSurveyResponses();
-      this.currentSurveyResponse = null;
-      this.currentIndex = -1;
-    },
-
-    setActiveSurveyResponse(tutorial, index) {
-      this.currentSurveyResponse = tutorial;
-      this.currentIndex = index;
-    },
-
-    removeAllSurveyResponses() {
-      SurveyResponseDataService.deleteAll()
-        .then(response => {
-          console.log(response.data);
-          this.refreshList();
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-    
   },
   mounted() {
     this.retrieveSurveyResponses();

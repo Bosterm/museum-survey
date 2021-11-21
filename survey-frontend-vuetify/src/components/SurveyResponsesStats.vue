@@ -6,12 +6,22 @@
   >
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>75% see a blue and black dress</v-list-item-title>
+        <v-list-item-title>{{blue_black_percent}}% see a blue and black dress</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>15% see a white and gold dress</v-list-item-title>
+        <v-list-item-title>{{white_gold_percent}}% see a white and gold dress</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>{{blue_brown_percent}}% see a blue and brown dress</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>{{other_percent}}% see something else</v-list-item-title>
       </v-list-item-content>
     </v-list-item>
   </v-card>
@@ -98,6 +108,20 @@ export default {
   },
   mounted() {
     this.retrieveSurveyResponses();
+  },
+  computed: {
+    blue_black_percent() {
+      return (100 * (this.blue_black / this.surveyResponses.length)).toFixed(1);
+    },
+    white_gold_percent() {
+      return (100 * (this.white_gold / this.surveyResponses.length)).toFixed(1);
+    },
+    blue_brown_percent() {
+      return (100 * (this.blue_brown / this.surveyResponses.length)).toFixed(1);
+    },
+    other_percent() {
+      return (100 * (this.other / this.surveyResponses.length)).toFixed(1);
+    }
   }
 };
 </script>

@@ -37,7 +37,7 @@
     </div>
     <div v-else>
       <v-card-text>
-        <h3>You see the same colors as 45% of today's visitors.</h3>
+        <h3>You see the same colors as {{choice_percent}}% of today's visitors.</h3>
 
         </v-card-text>
     </div>
@@ -58,7 +58,10 @@ export default {
       },
       submitted: false,
       isChipSelected: false,
-      selectedChip: 'none'
+      selectedChip: 'none',
+      choice: '',
+      surveyResponses: [],
+      choice_count: 0
     };
   },
   methods: {
@@ -68,7 +71,7 @@ export default {
     },
     blueBlackChip () {
       this.isChipSelected = true;
-      this.selectedChip =   1
+      this.selectedChip = 1
     },
     blueBrownChip () {
       this.isChipSelected = true;
@@ -79,18 +82,17 @@ export default {
       this.selectedChip = 3
     },
     saveSurveyResponse() {
-      var choice = ""
       if (this.selectedChip == 0) {
-        choice = "white-gold"
+        this.choice = "white-gold"
       } else if (this.selectedChip == 1) {
-        choice = 'blue-black'
+        this.choice = 'blue-black'
       } else if (this.selectedChip == 2) {
-        choice = 'blue-brown'
+        this.choice = 'blue-brown'
       } else {
-        choice = 'other'
+        this.choice = 'other'
       }
       var data = {
-        response: choice
+        response: this.choice
       };
 
       SurveyResponseDataService.create(data)
@@ -102,6 +104,33 @@ export default {
         .catch(e => {
           console.log(e);
         });
+      this.retrieveSurveyResponses();
+    },
+    retrieveSurveyResponses() {
+      SurveyResponseDataService.getAll()
+        .then(response => {
+          this.surveyResponses = response.data;
+          this.getResponseCounts();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+        
+    },
+    getResponseCounts() {
+      var this_choice_count = 1;
+      var current_choice = this.choice;
+      this.surveyResponses.forEach(function (item) {
+        if(item.response == current_choice){
+          this_choice_count += 1;
+        }
+      });
+      this.choice_count = this_choice_count;
+    }
+  },
+  computed: {
+    choice_percent() {
+      return (100 * (this.choice_count / (this.surveyResponses.length + 1))).toFixed(1);
     },
   }
 };

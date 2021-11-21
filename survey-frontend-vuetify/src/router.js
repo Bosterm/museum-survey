@@ -10,7 +10,7 @@ export default new Router({
       path: "/",
       alias: "/survey-responses",
       name: "survey-responses",
-      component: () => import("./components/SurveyResponsesList")
+      component: () => import("./components/SurveyResponsesStats")
     },
     {
       path: "/add",

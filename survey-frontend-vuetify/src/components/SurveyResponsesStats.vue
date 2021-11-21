@@ -1,27 +1,34 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="300"
-    tile
-  >
+  <v-card class="mx-auto" max-width="300" tile>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>{{blue_black_percent}}% see a blue and black dress</v-list-item-title>
+        <v-list-item-title
+          >{{ blue_black_percent }}% see a blue and black
+          dress</v-list-item-title
+        >
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>{{white_gold_percent}}% see a white and gold dress</v-list-item-title>
+        <v-list-item-title
+          >{{ white_gold_percent }}% see a white and gold
+          dress</v-list-item-title
+        >
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>{{blue_brown_percent}}% see a blue and brown dress</v-list-item-title>
+        <v-list-item-title
+          >{{ blue_brown_percent }}% see a blue and brown
+          dress</v-list-item-title
+        >
       </v-list-item-content>
     </v-list-item>
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title>{{other_percent}}% see something else</v-list-item-title>
+        <v-list-item-title
+          >{{ other_percent }}% see something else</v-list-item-title
+        >
       </v-list-item-content>
     </v-list-item>
   </v-card>
@@ -41,42 +48,41 @@ export default {
       other: 0,
       currentSurveyResponse: null,
       currentIndex: -1,
-      title: ""
+      title: "",
     };
   },
   methods: {
     retrieveSurveyResponses() {
       SurveyResponseDataService.getAll()
-        .then(response => {
+        .then((response) => {
           this.surveyResponses = response.data;
           this.getResponseCounts();
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
-        
     },
     getResponseCounts() {
       var blue_black_count = 0;
       var white_gold_count = 0;
       var blue_brown_count = 0;
-      var other_count = 0
+      var other_count = 0;
       this.surveyResponses.forEach(function (item) {
-        console.log('here!');
-        switch(item.response) {
-          case 'blue-black':
+        console.log("here!");
+        switch (item.response) {
+          case "blue-black":
             blue_black_count += 1;
             break;
-          case 'white-gold':
+          case "white-gold":
             white_gold_count += 1;
             break;
-          case 'blue-brown':
+          case "blue-brown":
             blue_brown_count += 1;
             break;
-          case 'other':
+          case "other":
             other_count += 1;
             break;
-        } 
+        }
       });
       this.blue_black = blue_black_count;
       this.white_gold = white_gold_count;
@@ -99,8 +105,8 @@ export default {
     },
     other_percent() {
       return (100 * (this.other / this.surveyResponses.length)).toFixed(1);
-    }
-  }
+    },
+  },
 };
 </script>
 

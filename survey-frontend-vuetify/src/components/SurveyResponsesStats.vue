@@ -1,44 +1,20 @@
 <template>
-  <div class="list row">
-    <div class="col-md-6">
-      <h4>Tutorials List</h4>
-      <ul class="list-group">
-        <li class="list-group-item"
-          :class="{ active: index == currentIndex }"
-          v-for="(surveyResponse, index) in surveyResponses"
-          :key="index"
-          @click="setActiveSurveyResponse(surveyResponse, index)"
-        >
-          {{ surveyResponse.response }}
-        </li>
-      </ul>
-
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllSurveyResponses">
-        Remove All
-      </button>
-    </div>
-    <div class="col-md-6">
-      <div v-if="currentSurveyResponse">
-        <h4>Response</h4>
-        <div>
-         {{ currentSurveyResponse.response }}
-        </div>
-        <div>
-            {{ currentSurveyResponse.created_at }}
-        </div>
-
-        <a class="badge badge-warning"
-          :href="'/#/tutorials/' + currentSurveyResponse.id"
-        >
-          Edit
-        </a>
-      </div>
-      <div v-else>
-        <br />
-        <p>Please click on a Tutorial...</p>
-      </div>
-    </div>
-  </div>
+  <v-card
+    class="mx-auto"
+    max-width="300"
+    tile
+  >
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>75% see a blue and black dress</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+    <v-list-item>
+      <v-list-item-content>
+        <v-list-item-title>15% see a white and gold dress</v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+  </v-card>
 </template>
 
 <script>

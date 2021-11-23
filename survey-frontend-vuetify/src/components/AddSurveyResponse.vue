@@ -1,49 +1,63 @@
 <template>
-  <v-card class="mx-auto my-12" max-width="374">
-    <div v-if="!submitted">
-      <v-img :src="require('../assets/Dress.png')"></v-img>
+  <v-dialog v-model="dialog" width="500">
+    <template v-slot:activator="{ on, attrs }">
+      <v-card class="mx-auto my-12" max-width="374">
+        <v-img :src="require('../assets/Dress.png')"></v-img>
 
-      <v-card-title>What two colors are this dress?</v-card-title>
-      <v-form>
-        <v-card-text>
-          <v-chip-group
-            v-model="selectedChip"
-            active-class="green accent-4 white--text"
-            column
-          >
-            <v-chip @click="whiteGoldChip">White and Gold</v-chip>
+        <v-card-title>What two colors are this dress?</v-card-title>
+        <v-form>
+          <v-card-text>
+            <v-chip-group
+              v-model="selectedChip"
+              active-class="green accent-4 white--text"
+              column
+            >
+              <v-chip @click="whiteGoldChip">White and Gold</v-chip>
 
-            <v-chip @click="blueBlackChip">Blue and Black</v-chip>
+              <v-chip @click="blueBlackChip">Blue and Black</v-chip>
 
-            <v-chip @click="blueBrownChip">Blue and Brown</v-chip>
+              <v-chip @click="blueBrownChip">Blue and Brown</v-chip>
 
-            <v-chip @click="otherChip">Something Else</v-chip>
-          </v-chip-group>
-        </v-card-text>
+              <v-chip @click="otherChip">Something Else</v-chip>
+            </v-chip-group>
+          </v-card-text>
 
-        <v-card-actions>
-          <v-btn
-            block
-            color="green"
-            elevation="2"
-            outlined
-            :disabled="!isChipSelected"
-            @click="saveSurveyResponse"
-          >
-            Submit</v-btn
-          >
-        </v-card-actions>
-      </v-form>
-    </div>
-    <div v-else>
+          <v-card-actions>
+            <v-btn
+              block
+              color="green"
+              elevation="2"
+              outlined
+              :disabled="!isChipSelected"
+              @click="saveSurveyResponse"
+              v-bind="attrs"
+              v-on="on"
+            >
+              Submit</v-btn
+            >
+          </v-card-actions>
+        </v-form>
+      </v-card>
+    </template>
+
+    <v-card>
       <v-card-text>
-        <h3>
-          You see the same colors as {{ choice_percent }}% of today's visitors.
-        </h3>
+        <div class="text-h4 text-center">You see the same colors as</div>
+        <div class="text-h2 text-center">{{ choice_percent }}%</div>
+        <div class="text-h4 text-center">of today's visitors.</div>
       </v-card-text>
-    </div>
-  </v-card>
+
+      <v-divider></v-divider>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" text @click="dialog = false"> Close </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
+
+
 <script>
 import SurveyResponseDataService from "../services/SurveyResponseDataService";
 
@@ -57,6 +71,7 @@ export default {
         response: "",
       },
       submitted: false,
+      dialog: false,
       isChipSelected: false,
       selectedChip: "none",
       choice: "",

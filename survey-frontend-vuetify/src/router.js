@@ -16,6 +16,11 @@ export default new Router({
       path: "/add",
       name: "add",
       component: () => import("./components/AddSurveyResponse")
-    }
+    },
+    {
+      path: "/chart",
+      name: "chart",
+      component: () => import("./components/Chart")
+    },
   ]
 });

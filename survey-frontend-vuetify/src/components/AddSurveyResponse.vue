@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" width="500">
+  <v-dialog v-model="dialog" width="700">
     <template v-slot:activator="{ on, attrs }">
       <v-card class="mx-auto my-12" max-width="374">
         <v-img :src="require('../assets/Dress.png')"></v-img>
@@ -42,9 +42,9 @@
 
     <v-card>
       <v-card-text>
-        <div class="text-h4 text-center">You see the same colors as</div>
+        <div class="text-h4 text-center">You selected {{choice_text}}.</div>
         <div class="text-h2 text-center">{{ choice_percent }}%</div>
-        <div class="text-h4 text-center">of today's visitors.</div>
+        <div class="text-h4 text-center">of today's visitors also see {{choice_text}}.</div>
       </v-card-text>
 
       <v-divider></v-divider>
@@ -149,6 +149,20 @@ export default {
         (this.choice_count / (this.surveyResponses.length + 1))
       ).toFixed(1);
     },
+    choice_text() {
+      switch(this.choice) {
+        case 'blue-black' :
+          return 'a Blue and Black dress';
+        case 'white-gold':
+          return 'a White and Gold dress';
+        case 'blue-brown':
+          return 'a Blue and Brown dress';
+        case 'other':
+          return 'Something Else';
+        default:
+          return 'nothing selected';
+      }
+    }
   },
 };
 </script>

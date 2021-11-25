@@ -1,10 +1,13 @@
 <template>
-  <div>
-    
-    <v-card class="mx-auto" max-width="500"> 
-      <Chart></Chart>
-    </v-card>
-  </div>
+  <v-container class="fill-height">
+    <v-row no-gutters class="align-center">
+      <v-col>
+        <v-card align-self="center" class="pa-2 mx-auto" max-width="500">
+          <Chart></Chart>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -82,8 +85,8 @@ export default {
     },
   },
   components: {
-    Chart
-  }
+    Chart,
+  },
 };
 </script>
 

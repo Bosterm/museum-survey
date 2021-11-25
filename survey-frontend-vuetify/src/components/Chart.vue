@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <apexchart
-      width="700"
-      type="bar"
-      :options="chartOptions"
-      :series="series"
-    ></apexchart>
-  </div>
+  <apexchart
+    width="700"
+    type="bar"
+    :options="chartOptions"
+    :series="series"
+  ></apexchart>
 </template>
 
 <script>
 export default {
   name: "Chart",
+  props: {
+    responseCounts: {
+      type: Array,
+      required: true,
+    },
+  },
   data: function () {
     return {
       chartOptions: {
@@ -55,8 +59,8 @@ export default {
       },
       series: [
         {
-          name: "series-1",
-          data: [13, 10, 5, 4],
+          name: "responses",
+          data: this.responseCounts,
         },
       ],
     };

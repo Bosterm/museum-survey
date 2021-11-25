@@ -8,7 +8,12 @@
               How Today's Visitors See 'The Dress'
             </h5></v-card-title
           >
-          <Chart></Chart>
+          <apexchart
+            width="700"
+            type="bar"
+            :options="chartOptions"
+            :series="series"
+          ></apexchart>
         </v-card>
       </v-col>
     </v-row>
@@ -17,20 +22,61 @@
 
 <script>
 import SurveyResponseDataService from "../services/SurveyResponseDataService";
-import Chart from "./Chart";
 
 export default {
   name: "survey-responses-stats",
   data() {
     return {
       surveyResponses: [],
-      blue_black: 0,
-      white_gold: 0,
-      blue_brown: 0,
-      other: 0,
+      responseCounts: [],
       currentSurveyResponse: null,
       currentIndex: -1,
       title: "",
+      chartOptions: {
+        chart: {
+          id: "vuechart-example",
+          toolbar: {
+            show: false,
+          },
+        },
+        plotOptions: {
+          bar: {
+            distributed: true,
+          },
+        },
+        xaxis: {
+          categories: [
+            "Blue and Black",
+            "White and Gold",
+            "Blue and Brown",
+            "Something Else",
+          ],
+        },
+        colors: ["#4529D8", "#BEAA39", "#919ACA", "#000"],
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            shadeIntensity: 0.5,
+            gradientToColors: ["#07060B", "#E5E7AE", "#785121"],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 100],
+            colorStops: [],
+          },
+        },
+        legend: {
+          show: false,
+        },
+      },
+      series: [
+        {
+          name: "responses",
+          data: [0, 0, 0, 0],
+        },
+      ],
     };
   },
   methods: {
@@ -50,7 +96,6 @@ export default {
       var blue_brown_count = 0;
       var other_count = 0;
       this.surveyResponses.forEach(function (item) {
-        console.log("here!");
         switch (item.response) {
           case "blue-black":
             blue_black_count += 1;
@@ -66,10 +111,18 @@ export default {
             break;
         }
       });
-      this.blue_black = blue_black_count;
-      this.white_gold = white_gold_count;
-      this.blue_brown = blue_brown_count;
-      this.other = other_count;
+      this.responseCounts = [
+        blue_black_count,
+        white_gold_count,
+        blue_brown_count,
+        other_count,
+      ];
+      this.series = [
+        {
+          name: "responses",
+          data: this.responseCounts,
+        },
+      ];
     },
   },
   mounted() {
@@ -88,9 +141,6 @@ export default {
     other_percent() {
       return (100 * (this.other / this.surveyResponses.length)).toFixed(1);
     },
-  },
-  components: {
-    Chart,
   },
 };
 </script>

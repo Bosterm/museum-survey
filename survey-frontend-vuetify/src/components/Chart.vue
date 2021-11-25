@@ -35,6 +35,9 @@ export default {
           ],
         },
         colors: ["#546E7A", "#33b2df", "#d4526e", "#13d8aa"],
+        legend: {
+          show: false,
+        },
       },
       series: [
         {

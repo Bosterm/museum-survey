@@ -3,6 +3,9 @@
     <v-row no-gutters class="align-center">
       <v-col>
         <v-card align-self="center" class="pa-2 mx-auto" max-width="500">
+          <v-card-title class="text-h5 text-center"
+            >How Today's Visitors See 'The Dress'</v-card-title
+          >
           <Chart></Chart>
         </v-card>
       </v-col>

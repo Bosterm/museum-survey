@@ -34,7 +34,21 @@ export default {
             "Something Else",
           ],
         },
-        colors: ["#546E7A", "#33b2df", "#d4526e", "#13d8aa"],
+        colors: ["#4529D8", "#BEAA39", "#919ACA", "#000"],
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            type: "vertical",
+            shadeIntensity: 0.5,
+            gradientToColors: ["#07060B", "#E5E7AE", "#785121"], // optional, if not defined - uses the shades of same color in series
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 100],
+            colorStops: [],
+          },
+        },
         legend: {
           show: false,
         },

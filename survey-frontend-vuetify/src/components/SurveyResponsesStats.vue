@@ -1,41 +1,15 @@
 <template>
-  <v-card class="mx-auto" max-width="300" tile>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title
-          >{{ blue_black_percent }}% see a blue and black
-          dress</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title
-          >{{ white_gold_percent }}% see a white and gold
-          dress</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title
-          >{{ blue_brown_percent }}% see a blue and brown
-          dress</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title
-          >{{ other_percent }}% see something else</v-list-item-title
-        >
-      </v-list-item-content>
-    </v-list-item>
-  </v-card>
+  <div>
+    
+    <v-card class="mx-auto" max-width="500"> 
+      <Chart></Chart>
+    </v-card>
+  </div>
 </template>
 
 <script>
 import SurveyResponseDataService from "../services/SurveyResponseDataService";
+import Chart from "./Chart";
 
 export default {
   name: "survey-responses-stats",
@@ -107,6 +81,9 @@ export default {
       return (100 * (this.other / this.surveyResponses.length)).toFixed(1);
     },
   },
+  components: {
+    Chart
+  }
 };
 </script>
 

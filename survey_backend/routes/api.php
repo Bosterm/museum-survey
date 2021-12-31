@@ -22,3 +22,4 @@ use App\Http\Controllers\SurveyResponseController;
 
 Route::get('survey-responses', [SurveyResponseController::class, 'index']);
 Route::post('survey-responses', [SurveyResponseController::class, 'store']);
+Route::get('survey-responses-count', [SurveyResponseController::class, 'count']);

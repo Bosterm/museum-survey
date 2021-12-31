@@ -21,4 +21,11 @@ class SurveyResponseController extends Controller
 
         return SurveyResponse::create(['response' => $request->input('response')]);
     }
+
+    public function count(Request $request)
+    {
+        return SurveyResponse::selectRaw('response, count(*) as count')
+        ->groupByRaw('response')
+        ->get();
+    }
 }

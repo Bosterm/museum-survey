@@ -27,10 +27,7 @@ export default {
   name: "survey-responses-stats",
   data() {
     return {
-      surveyResponses: [],
       responseCounts: [],
-      currentSurveyResponse: null,
-      currentIndex: -1,
       title: "",
       chartOptions: {
         chart: {
@@ -81,48 +78,24 @@ export default {
   },
   methods: {
     retrieveSurveyResponses() {
-      SurveyResponseDataService.getAll()
+      SurveyResponseDataService.getCount()
         .then((response) => {
-          this.surveyResponses = response.data;
-          this.getResponseCounts();
+          this.responseCounts = [
+            response.data[0]['count'],
+            response.data[3]['count'],
+            response.data[1]['count'],
+            response.data[2]['count'],
+          ];
+          this.series = [
+          {
+            name: "responses",
+            data: this.responseCounts,
+          },
+          ];
         })
         .catch((e) => {
           console.log(e);
         });
-    },
-    getResponseCounts() {
-      var blue_black_count = 0;
-      var white_gold_count = 0;
-      var blue_brown_count = 0;
-      var other_count = 0;
-      this.surveyResponses.forEach(function (item) {
-        switch (item.response) {
-          case "blue-black":
-            blue_black_count += 1;
-            break;
-          case "white-gold":
-            white_gold_count += 1;
-            break;
-          case "blue-brown":
-            blue_brown_count += 1;
-            break;
-          case "other":
-            other_count += 1;
-            break;
-        }
-      });
-      this.responseCounts = [
-        blue_black_count,
-        white_gold_count,
-        blue_brown_count,
-        other_count,
-      ];
-      this.series = [
-        {
-          name: "responses",
-          data: this.responseCounts,
-        },
-      ];
     },
   },
   mounted() {

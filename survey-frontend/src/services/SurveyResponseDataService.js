@@ -5,6 +5,10 @@ class TutorialDataService {
     return http.get("/survey-responses");
   }
 
+  getCount() {
+    return http.get("/survey-responses-count");
+  }
+
   get(id) {
     return http.get(`/survey-responses/${id}`);
   }

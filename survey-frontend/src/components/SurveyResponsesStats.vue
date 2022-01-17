@@ -81,6 +81,9 @@ export default {
       SurveyResponseDataService.getCount()
         .then((response) => {
           this.responseCounts = [
+            if (!response.data || !response.data.length > 3) {
+              return;
+            }
             response.data[0]['count'],
             response.data[3]['count'],
             response.data[1]['count'],

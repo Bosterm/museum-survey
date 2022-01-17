@@ -80,10 +80,10 @@ export default {
     retrieveSurveyResponses() {
       SurveyResponseDataService.getCount()
         .then((response) => {
+          if (!response.data || response.data.length < 4) {
+            return;
+          }
           this.responseCounts = [
-            if (!response.data || !response.data.length > 3) {
-              return;
-            }
             response.data[0]['count'],
             response.data[3]['count'],
             response.data[1]['count'],

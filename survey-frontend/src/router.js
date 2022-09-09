@@ -17,10 +17,5 @@ export default new Router({
       name: "add",
       component: () => import("./components/AddSurveyResponse")
     },
-    {
-      path: "/chart",
-      name: "chart",
-      component: () => import("./components/Chart")
-    },
   ]
 });

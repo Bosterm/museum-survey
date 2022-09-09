@@ -1,18 +1,18 @@
 <template>
   <v-bottom-navigation v-model="value">
-    <v-btn value="recent">
+    <v-btn value="about">
       <span>About</span>
 
       <v-icon>mdi-file-document</v-icon>
     </v-btn>
 
-    <v-btn value="favorites">
+    <v-btn to="/" value="results">
       <span>Results</span>
 
       <v-icon>mdi-chart-bar</v-icon>
     </v-btn>
 
-    <v-btn value="nearby">
+    <v-btn to="/add" value="add">
       <span>Add Response</span>
 
       <v-icon>mdi-plus-circle</v-icon>

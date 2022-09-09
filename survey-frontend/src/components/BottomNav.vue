@@ -1,21 +1,21 @@
 <template>
   <v-bottom-navigation v-model="value">
     <v-btn value="recent">
-      <span>Recent</span>
+      <span>About</span>
 
-      <v-icon>mdi-history</v-icon>
+      <v-icon>mdi-file-document</v-icon>
     </v-btn>
 
     <v-btn value="favorites">
-      <span>Favorites</span>
+      <span>Results</span>
 
-      <v-icon>mdi-heart</v-icon>
+      <v-icon>mdi-chart-bar</v-icon>
     </v-btn>
 
     <v-btn value="nearby">
-      <span>Nearby</span>
+      <span>Add Response</span>
 
-      <v-icon>mdi-map-marker</v-icon>
+      <v-icon>mdi-plus-circle</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>

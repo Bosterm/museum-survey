@@ -1,6 +1,6 @@
 <template>
   <v-bottom-navigation v-model="value">
-    <v-btn value="about">
+    <v-btn to="/about" value="about">
       <span>About</span>
 
       <v-icon>mdi-file-document</v-icon>

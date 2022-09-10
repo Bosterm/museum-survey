@@ -39,7 +39,7 @@
             </p>
             <p>
               This interaction is inspired by the work of curator Nina Simon,
-              who in <em>The Participatory Museum</em> describes the Ontario
+              who in <a href="https://www.participatorymuseum.org/chapter3/"><em>The Participatory Museum</em></a> describes the Ontario
               Science Center&rsquo;s &ldquo;Facing Mars&rdquo; traveling
               exhibition. Visitors entered the exhibit by answering the
               question, &ldquo;Would you go to Mars?&rdquo; by entering

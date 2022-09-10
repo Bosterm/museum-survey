@@ -1,24 +1,59 @@
 <template>
-    <v-container class="fill-height">
-      <v-row no-gutters class="align-center">
-        <v-col>
-          <v-card align-self="center" class="pa-2 mx-auto" max-width="700">
-            <v-card-title class="justify-center"
-              ><h5 class="text-h5 text-center">
-                About
-              </h5></v-card-title
-            >
-            <v-card-text>
-            <p>But I must explain to you how all this mistaken idea of denouncing of a pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
-            <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammeled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p></v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </template>
+  <v-container class="fill-height">
+    <v-row no-gutters class="align-center">
+      <v-col>
+        <v-card align-self="center" class="pa-2 mx-auto" max-width="700">
+          <v-card-title class="justify-center"
+            ><h5 class="text-h5 text-center">About</h5></v-card-title
+          >
+          <v-card-text>
+            <p><a href="https://benostermeier.com/">Ben Ostermeier</a> created this web application for IS 426: Museum Informatics in fall 2021. It is meant to be part of a theoretical exhibit on the notorious &ldquo;blue and black&rdquo; or &ldquo;white and gold&rdquo; dress.</p>
+            <h6 class="text-h6 text-center">Background</h6>
+            <p>
+              One of the defining features of the early 21<sup>st</sup> century
+              has been the splitting of groups into smaller communities due to
+              the rising influence of digital tools, especially social media.
+              This division often results in groups that have sharply different
+              world views than others. This proposed exhibit aims to explore
+              this digital-driven division through a contentious, but largely
+              non-consequential issue: the dress Internet phenomenon.
+            </p>
+            
+            <p>
+              A low resolution, poorly lit photograph of a striped dress went
+              viral on social media in late February 2015. People vehemently
+              disagreed on whether the dress was black and blue or white and
+              gold, resulting in debates on how one image could have such widely
+              different interpretations. While the media was able to eventually
+              confirm that the dress itself was blue and black, after seven
+              years there is still no scientific consensus about why the
+              photograph elicits such different perceptions.
+            </p>
+            <p>
+              While the proposed exhibit may explore several of the neuroscience
+              and vision studies that propose explanations as to why the dress
+              image is contentious, this web application would form as a
+              particular interactive backdrop to the exhibit which will inspire
+              dialogue both between visitors and the exhibit and amongst
+              visitors themselves.
+            </p>
+            <p>
+              This interaction is inspired by the work of curator Nina Simon,
+              who in <em>The Participatory Museum</em> describes the Ontario
+              Science Center&rsquo;s &ldquo;Facing Mars&rdquo; traveling
+              exhibition. Visitors entered the exhibit by answering the
+              question, &ldquo;Would you go to Mars?&rdquo; by entering
+              turnstiles labeled &ldquo;yes&rdquo; or &ldquo;no&rdquo;.
+            </p></v-card-text
+          >
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 
 <script>
 export default {
-    name: 'about',
+  name: "about",
 };
 </script>

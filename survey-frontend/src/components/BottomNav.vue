@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation v-model="value">
+  <v-bottom-navigation v-model="value" color="green">
     <v-btn to="/about" value="about">
       <span>About</span>
 

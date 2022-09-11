@@ -44,7 +44,13 @@
               exhibition. Visitors entered the exhibit by answering the
               question, &ldquo;Would you go to Mars?&rdquo; by entering
               turnstiles labeled &ldquo;yes&rdquo; or &ldquo;no&rdquo;.
-            </p></v-card-text
+            </p>
+            <h6 class="text-h6 text-center">Entering the Exhibit</h6>
+            <p>Visitors to <em>The Dress</em> exhibit would also answer a question as they enter, in this case a query about how they see the dress on a tablet touch screen. This screen is shown on the <a href="add">Add Response</a> page. This poll allows for visitors who see something other than the most common colors to select the &ldquo;Something Else&rdquo; option, a response that is also viable for those with visual impairments such as color blindness or full blindness.</p>
+            <p>Upon selecting their choice, visitors learn what percentage of exhibit visitors selected the same response, giving immediate feedback that not everyone sees the image the same as they do. Visitors then receive a sticker that indicates how they voted, which they then wear in the exhibit.</p>
+            <p>Visitors then enter the actual exhibit, and one of the screens displays the results of the vote, as shown on the <a href="/">Results</a> page.</p>
+            <p>The goal of this digital interaction, along with the badge stickers, is to provoke visitors to discuss why they see the dress differently and why social media causes different viewpoints to develop.</p>
+            </v-card-text
           >
         </v-card>
       </v-col>
